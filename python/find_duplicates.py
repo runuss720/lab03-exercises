@@ -1,13 +1,11 @@
 def find_duplicates_nested_loop(l: list) -> list:
     duplicates = []
-    non_duplicates = []
-
-    for i in l:
-        if i not in non_duplicates:
-            non_duplicates.append(i)
-        elif i not in duplicates:
-            duplicates.append(i)
-
+    for i in range(len(l)):
+        for j in range(i + 1, len(l)):
+            if l[i] == l[j]:
+                if l[i] not in duplicates:
+                    duplicates.append(l[i])
+                break
     return duplicates
 
 if __name__ == "__main__":
